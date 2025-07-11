@@ -2,6 +2,7 @@ public class SessionManager {
 
     private static SessionManager instance;
     private String utenteLoggato;
+    private Personaggio_Strategy_Attacco strategia;
 
     private SessionManager() {
 
@@ -35,6 +36,8 @@ public class SessionManager {
         return utenteLoggato != null;
     }
 
+    public void setStrategia(Personaggio_Strategy_Attacco strategia)
+        this.strategia = strategia;
 }
 
 
