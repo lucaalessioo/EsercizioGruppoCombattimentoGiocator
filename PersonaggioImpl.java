@@ -1,10 +1,19 @@
+interface Subject {
+    void registerObserver(OsservatoreGioco o);
 
-abstract class PersonaggioImpl implements Personaggio { // Classe astratta che implementa l'interfaccia Personaggio
+    void removeObserver(OsservatoreGioco o);
+
+    Notifica aggiornaNotifi(Notifica notifica);
+}
+
+abstract class PersonaggioImpl implements Personaggio, Subject { // Classe astratta che implementa l'interfaccia
+                                                                 // Personaggio
     protected String nome;
     protected int salute;
     protected int forza;
     protected String classe;
     protected Personaggio_Strategy_Attacco strategiaAttacco;
+    protected List<OsservatoreGioco> alleati = new ArrayList<>();
 
     public Personaggio_Strategy_Attacco getStrategiaAttacco() {
         return strategiaAttacco;
@@ -61,6 +70,24 @@ abstract class PersonaggioImpl implements Personaggio { // Classe astratta che i
     @Override
     public String azione() {
         return "Il personaggio compie un'azione.";
+    }
+
+    @Override
+    public Notifica aggiornaNotifi(Notifica notifica) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void registerObserver(OsservatoreGioco o) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void removeObserver(OsservatoreGioco o) {
+        // TODO Auto-generated method stub
+
     }
 
     // Implementazione dei metodi attacca(), difendi(), cura() se necessario
